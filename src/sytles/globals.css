@@ -18,4 +18,24 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  font-size: 18px;
+}
+
+html, .containerUz {
+  height: 100%;
+}
+
+.containerUz {
+  @apply m-auto px-4
+}
+
+@media only screen and (min-width: 1260px) {
+  .containerUz {
+    max-width: 1260px;
+  }
+}
+
+.section {
+  @apply py-10 w-full h-fit text-center max-[375px]:py-5 ;
 }
