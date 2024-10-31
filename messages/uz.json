@@ -1,7 +1,8 @@
 {
-    "HomePage": {
-      "title": "Salom Dunyo",
-      "about": "Men Haqimda sahifasiga o'ting"
+    "Header": {
+      "title": "XUSH KELIBSIZ!",
+      "about": "Erkaklar sartaroshxonasi",
+      "address": "Urganch Darital"
     },
     "Menu": {
       "home": "Asosiy",
@@ -9,5 +10,8 @@
       "price": "Narxlar",
       "gallery": "Galereya",
       "contact": "Biz bilan bog'laning"
+    },
+    "Button": {
+      "title": "Bron qilish"
     }
   }
