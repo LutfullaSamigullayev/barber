@@ -7,3 +7,8 @@ export interface MenuItems {
 }
 
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export interface MenuProps {
+  className?: boolean;
+  onCancel: () => void; // Callback funksiyasi
+}

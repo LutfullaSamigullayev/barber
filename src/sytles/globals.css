@@ -37,5 +37,49 @@ html, .containerUz {
 }
 
 .section {
-  @apply py-10 w-full h-fit max-[375px]:py-5 ;
+  @apply py-10 w-full h-fit 
+}
+.burger {
+  @apply hidden
+}
+.cancel {
+  @apply  hidden
+}
+.menuItems li {
+  @apply transition-all hover:text-orange hover:scale-x-110
+}
+@media only screen and (max-width: 1024px) {
+  .menu {
+    @apply fixed flex items-start justify-between left-0 top-0 w-full h-full border border-red-600
+    backdrop-blur-sm p-4 pt-10 
+    transform -translate-x-full
+  }
+  .cancel {
+    @apply flex items-center gap-x-8
+  }
+  .menuLine {
+    @apply hidden
+  }
+  .menuItems {
+    @apply flex-col gap-y-8 text-4xl  
+  }
+  .burger {
+    @apply block
+  }
+  .open {
+    @apply transform translate-x-0 
+    transition-transform duration-300;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .section {
+    @apply py-5
+  }
+  .menu {
+    @apply pt-4
+  }
+  .menuItems {
+    @apply text-2xl gap-y-4
+  }
 }

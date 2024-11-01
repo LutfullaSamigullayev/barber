@@ -14,8 +14,8 @@ export const Icons = {
   ),
   cancel: (props: IconProps) => (
     <svg
-      width="23"
-      height="23"
+      width="50"
+      height="50"
       viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,9 @@ export const Icons = {
         width="27.3715"
         height="3.8"
         transform="rotate(45 2.68701 0)"
-        fill="#828282"
+        fill="#4d4d4d"
+        rx="2"
+        ry="2"
       />
       <rect
         x="0.831299"
@@ -34,7 +36,9 @@ export const Icons = {
         width="27.3715"
         height="3.8"
         transform="rotate(-45 0.831299 19.5566)"
-        fill="#828282"
+        fill="#4d4d4d"
+        rx="2"
+        ry="2"
       />
     </svg>
   ),

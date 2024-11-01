@@ -1,7 +1,10 @@
-import { MenuItems } from "@/types";
+import { Icons } from "@/icons/icons";
+import { MenuItems, MenuProps } from "@/types";
 import { useTranslations } from "next-intl";
+import { LangSelect } from "./langSelect";
+import React from "react";
 
-export const Menu = () => {
+export const Menu = ({ className, onCancel }: MenuProps) => {
   const t = useTranslations("Menu");
 
   const menuItems: MenuItems[] = [
@@ -33,14 +36,30 @@ export const Menu = () => {
   ];
 
   return (
-    <div className="w-2/3">
-      <ul className="flex gap-x-3 justify-between">
-        {menuItems.map((item) => (
-          <li key={item.id}>
-            <a href={item.link}>{item.title}</a>
-          </li>
+    <div className={`menu ${className ? "open" : ""} w-fit`}>
+      <ul className="menuItems flex gap-x-5 justify-between">
+        {menuItems.map((item, i) => (
+          <React.Fragment key={item.id}>
+            {" "}
+            {/* Fragmentga key berish */}
+            <li>
+              <a onClick={onCancel} href={item.link}>{item.title}</a>
+            </li>
+            {i + 1 !== menuItems.length && (
+              <div
+                className="w-[1px] menuLine border border-black"
+                key={`line-${item.id}`}
+              ></div> // Har bir chiziqqa noyob key
+            )}
+          </React.Fragment>
         ))}
       </ul>
+      <div className="cancel">
+        <LangSelect />
+        <button onClick={onCancel}>
+          <Icons.cancel />
+        </button>
+      </div>
     </div>
   );
 };
