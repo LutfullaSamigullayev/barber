@@ -10,6 +10,11 @@ export interface ServicesItems {
   image: string;
   title: string;
 }
+export interface PriceItems {
+  id: number;
+  title: string;
+  price: number;
+}
 
 export type IconProps = SVGProps<SVGSVGElement>;
 

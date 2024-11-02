@@ -20,5 +20,13 @@
     "shaving": "Soqol olish",
     "breadTrim": "Kantovka",
     "kidsHairCut": "Bolalar sochini olish"
+  },
+  "Price": {
+    "title": "Narxlar",
+    "money": "ming so'm",
+    "Regular Haircut": "Oddiy soch turmagi",
+    "shaving": "Soqol olish",
+    "hairCut and shaving": "Soch va soqol olish",
+    "Haircut and Facial": "Soch olish va yuzni parvarish qilish"
   }
 }

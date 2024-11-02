@@ -20,5 +20,13 @@
     "shaving": "Бритье",
     "breadTrim": "Стрижка бороды",
     "kidsHairCut": "Детские стрижки"
+  },
+  "Price": {
+    "title": "Цены",
+    "money": "тысяч сум",
+    "Regular Haircut": "Простая прическа",
+    "shaving": "Бритье",
+    "hairCut and shaving": "Стрижка и бритье",
+    "Haircut and Facial": "Стрижка и уход за лицом"
   }
 }
