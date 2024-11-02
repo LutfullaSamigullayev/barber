@@ -1,17 +1,24 @@
 {
-    "Header": {
-      "title": "XUSH KELIBSIZ!",
-      "about": "Erkaklar sartaroshxonasi",
-      "address": "Urganch Darital"
-    },
-    "Menu": {
-      "home": "Asosiy",
-      "service": "Xizmatlar",
-      "price": "Narxlar",
-      "gallery": "Galereya",
-      "contact": "Biz bilan bog'laning"
-    },
-    "Button": {
-      "title": "Bron qilish"
-    }
+  "Menu": {
+    "home": "Asosiy",
+    "service": "Xizmatlar",
+    "price": "Narxlar",
+    "gallery": "Galereya",
+    "contact": "Biz bilan bog'laning"
+  },
+  "Button": {
+    "title": "Bron qilish"
+  },
+  "Banner": {
+    "title": "XUSH KELIBSIZ!",
+    "about": "Erkaklar sartaroshxonasi",
+    "address": "Urganch Darital"
+  },
+  "Services": {
+    "title": "Xizmatlar",
+    "hairCut": "Soch olish",
+    "shaving": "Soqol olish",
+    "breadTrim": "Kantovka",
+    "kidsHairCut": "Bolalar sochini olish"
   }
+}

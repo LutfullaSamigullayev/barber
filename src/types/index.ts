@@ -5,6 +5,11 @@ export interface MenuItems {
   link: string;
   title: string;
 }
+export interface ServicesItems {
+  id: number;
+  image: string;
+  title: string;
+}
 
 export type IconProps = SVGProps<SVGSVGElement>;
 

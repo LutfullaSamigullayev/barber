@@ -14,7 +14,7 @@ export const Header = () => {
     <header id="home" className="containerUz section flex flex-col ">
       <div className="menuBox flex justify-between items-center">
         <Menu className={isOpen} onCancel={toggleMenu} />
-        <Icons.burger onClick={toggleMenu} className="burger"/>
+        <Icons.burger onClick={toggleMenu} className="block lg:hidden"/>
         <div className="flex items-center gap-x-5">
           <LangSelect />
           <ButtonBron />

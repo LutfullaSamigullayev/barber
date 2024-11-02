@@ -36,26 +36,26 @@ export const Menu = ({ className, onCancel }: MenuProps) => {
   ];
 
   return (
-    <div className={`menu ${className ? "open" : ""} w-fit`}>
-      <ul className="menuItems flex gap-x-5 justify-between">
+    <div className={`hidden p-4 w-fit lg:block ${className ? "open" : ""}`}>
+      <ul className="flex flex-col gap-y-4 text-4xl lg:flex-row lg:gap-x-4 lg:text-2xl">
         {menuItems.map((item, i) => (
           <React.Fragment key={item.id}>
             {" "}
-            {/* Fragmentga key berish */}
-            <li>
-              <a onClick={onCancel} href={item.link}>{item.title}</a>
+            <li className="transition-all hover:text-orange hover:scale-x-110">
+              <a onClick={className ? onCancel : () => console.log('No className') } href={item.link}>
+                {item.title}
+              </a>
             </li>
             {i + 1 !== menuItems.length && (
               <div
-                className="w-[1px] menuLine border border-black"
+                className="hidden w-[1px] border border-black lg:block"
                 key={`line-${item.id}`}
-              ></div> // Har bir chiziqqa noyob key
+              ></div>
             )}
           </React.Fragment>
         ))}
       </ul>
-      <div className="cancel">
-        <LangSelect />
+      <div className="lg:hidden">
         <button onClick={onCancel}>
           <Icons.cancel />
         </button>

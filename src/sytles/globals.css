@@ -6,80 +6,42 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
-
+/* ---------------------Main start--------------- */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  height: 100%;
-  font-size: 24px;
+  @apply h-full text-base sm:text-lg;
 }
-
-html, .containerUz {
-  height: 100%;
-}
-
+html,
 .containerUz {
-  @apply m-auto px-4
+  @apply h-full;
 }
-
-@media only screen and (min-width: 1260px) {
-  .containerUz {
-    max-width: 1260px;
-  }
+.containerUz {
+  @apply m-auto px-4 xl:max-w-[1280px];
 }
-
 .section {
-  @apply py-10 w-full h-fit 
+  @apply w-full h-fit py-5 sm:py-7;
 }
-.burger {
-  @apply hidden
-}
-.cancel {
-  @apply  hidden
-}
-.menuItems li {
-  @apply transition-all hover:text-orange hover:scale-x-110
-}
-@media only screen and (max-width: 1024px) {
-  .menu {
-    @apply fixed flex items-start justify-between left-0 top-0 w-full h-full border border-red-600
-    backdrop-blur-sm p-4 pt-10 
-    transform -translate-x-full
-  }
-  .cancel {
-    @apply flex items-center gap-x-8
-  }
-  .menuLine {
-    @apply hidden
-  }
-  .menuItems {
-    @apply flex-col gap-y-8 text-4xl  
-  }
-  .burger {
-    @apply block
-  }
-  .open {
-    @apply transform translate-x-0 
-    transition-transform duration-300;
-  }
-}
+/* ---------------------Main end--------------- */
 
-@media only screen and (max-width: 640px) {
-  .section {
-    @apply py-5
-  }
-  .menu {
-    @apply pt-4
-  }
-  .menuItems {
-    @apply text-2xl gap-y-4
-  }
+/* ---------------------Menu start--------------- */
+.open {
+  @apply w-full h-full pt-10
+    fixed left-0 top-0
+    flex items-start justify-between 
+    backdrop-blur-md;
 }
+/* ---------------------Menu end--------------- */
+
+/* ---------------------Services start--------------- */
+
+
+
+/* ---------------------Services end--------------- */
