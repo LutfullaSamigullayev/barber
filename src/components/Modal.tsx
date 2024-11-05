@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Icons } from "@/icons/icons";
 import React from "react";
@@ -9,16 +9,16 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, onClose }: ModalProps) => {
-
-    const handleOverlayClick = (e: React.MouseEvent) => {
-        // Agar bosilgan joy modalning tashqarisi bo'lsa, onClose'ni chaqir
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      };
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    // Agar bosilgan joy modalning tashqarisi bo'lsa, onClose'ni chaqir
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return (
-    <div  onClick={handleOverlayClick} // Tashqariga bosganda modalni yopish
+    <div
+      onClick={handleOverlayClick} // Tashqariga bosganda modalni yopish
       className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-30 z-50 ${
         isOpen ? "opacity-1 visible" : "opacity-0 invisible"
       }`}
@@ -44,7 +44,7 @@ export const Modal = ({ isOpen, onClose }: ModalProps) => {
           onClick={onClose}
           className="py-4 px-8 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
         >
-          Bosh sahifaga o'tish
+          Bosh sahifaga o&apos;tish
         </a>
       </div>
     </div>

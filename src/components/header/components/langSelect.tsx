@@ -1,11 +1,11 @@
 import { routing } from "@/i18n/routing";
 import Link from "next/link";
 // import { getLocale } from "next-intl/server";
-import { getPathname } from "@/utils";
+import { useActiveLang } from "@/utils";
 
 export const LangSelect = () => {
   // const activeLang = await getLocale(); // nextjs ning ozida use client qilmasdan pathname olish
-  const activeLang = getPathname();
+  const activeLang = useActiveLang();
 
   return (
     <div>

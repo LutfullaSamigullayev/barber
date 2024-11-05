@@ -1,1 +1,1 @@
-export { getPathname } from "./getPathname"
+export { useActiveLang } from "./useActiveLang";

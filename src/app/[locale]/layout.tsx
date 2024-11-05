@@ -17,10 +17,8 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const { locale } = await params;
-
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(params.locale as "uz" | "ru")) {
     notFound();
   }
 
@@ -29,7 +27,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={params.locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

@@ -28,7 +28,7 @@ export const Contact = () => {
   };
 
   const changeInputTel = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let inputValue = e.target.value;
+    const inputValue = e.target.value;
     if (!inputValue.startsWith("+998")) {
       setTel("+998 ");
       return;
