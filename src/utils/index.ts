@@ -1,1 +1,1 @@
-export { useActiveLang } from "./useActiveLang";
+export { useActiveLang } from "./ActiveLang";

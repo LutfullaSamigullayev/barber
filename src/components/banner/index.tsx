@@ -22,7 +22,7 @@ export const Banner = () => {
             <Icons.phone />
             <p>+99890-765-43-21</p>
           </div>
-          <ButtonBron onSubmit={() => {}} />
+          <ButtonBron />
         </div>
         <div className="w-full h-fit md:max-h-[500px] rounded-3xl overflow-hidden">
           <Image

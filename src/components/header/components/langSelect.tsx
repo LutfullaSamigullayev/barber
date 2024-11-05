@@ -1,6 +1,7 @@
+"use client";
+
 import { routing } from "@/i18n/routing";
 import Link from "next/link";
-// import { getLocale } from "next-intl/server";
 import { useActiveLang } from "@/utils";
 
 export const LangSelect = () => {
