@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useTranslations } from "next-intl";
 import { ButtonBron, Modal } from "@/components";
@@ -13,55 +13,45 @@ export const Contact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const changeInputName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value); 
-    setNameError(e.target.value === ""); 
+    setName(e.target.value);
+    setNameError(e.target.value === "");
   };
 
   const formatPhoneNumber = (input: string) => {
     const digits = input.replace(/\D/g, "").slice(3); // "+998" prefiksini tashlab ketish
-
     let formatted = "";
     if (digits.length > 0) formatted += `(${digits.slice(0, 2)}`;
     if (digits.length >= 3) formatted += `)-${digits.slice(2, 5)}`;
     if (digits.length >= 6) formatted += `-${digits.slice(5, 7)}`;
     if (digits.length >= 8) formatted += `-${digits.slice(7, 9)}`;
-
     return `+998 ${formatted}`;
   };
 
   const changeInputTel = (e: React.ChangeEvent<HTMLInputElement>) => {
     let inputValue = e.target.value;
-
     if (!inputValue.startsWith("+998")) {
       setTel("+998 ");
       return;
     }
-
     const formattedTel = formatPhoneNumber(inputValue);
     setTel(formattedTel);
-
     setTelError(formattedTel.length !== 19);
   };
 
   const handleFocus = () => {
-    // if (name === t("name").trim()) { // Placeholder matnini avtomatik o'chirish
-    //   setName(""); // Input matni bosh bo'ladi
-    // }
     if (tel === "+998 (XX)-XXX-XX-XX") {
       setTel("+998 ");
     }
-    
   };
 
-  const botToken = "";
-  const chatId = "";
-  // https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates      
+  const botToken = "7705601884:AAEYV5geTNUEFhWAJM8pI8VJygf5nREmKZw";
+  const chatId = "1325078946";
+  // https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
   // chatId olish  U "message" obyektida ko'rinadi.
 
-  
   const postMessege = async () => {
     const post = `<b>Ism:</b> ${name}\n<b>Telefon raqami:</b> ${tel}`;
-  
+
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: {
@@ -82,11 +72,10 @@ export const Contact = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); 
-    
+    e.preventDefault();
     if (!nameError && !telError && name.length !== 0 && tel.length === 19) {
-      // postMessege()
-      setName("")
+      postMessege();
+      setName("");
       setTel("+998 ");
       setIsModalOpen(true);
     } else {
@@ -99,19 +88,27 @@ export const Contact = () => {
     <section className="containerUz section">
       <div className="min-h-[250px] grid grid-cols-1 md:grid-cols-2 bg-[url('/contactImage/bg3.jpg')] bg-cover">
         <div className="hidden md:block">
-          <img className="w-full h-full object-cover" src="/contactImage/bg.jpg" alt="contact" />
+          <img
+            className="w-full h-full object-cover"
+            src="/contactImage/bg.jpg"
+            alt="contact"
+          />
         </div>
         <div className="flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
           <h1 className="title">{t("title")}</h1>
-          <form className="flex flex-col justify-center items-center gap-y-1 px-1 sm:px-3 md:px-6 lg:px-10" onSubmit={handleSubmit}>
+          <form
+            className="flex flex-col justify-center items-center gap-y-1 px-1 sm:px-3 md:px-6 lg:px-10"
+            onSubmit={handleSubmit}
+          >
             <input
               name="text"
               type="text"
-              // value={name.length === 0 ? t("name") : name}
               value={name}
               className={`w-full text-base sm:text-lg lg:text-xl px-8 py-2 sm:py-3 lg:py-4 rounded-2xl border-2 
                 ${nameError ? "border-red-500" : "border-green-500"}
-                ${name.length === 0 ? "text-gray-400 select-none" : "text-black"}
+                ${
+                  name.length === 0 ? "text-gray-400 select-none" : "text-black"
+                }
                 `}
               placeholder={t("name")}
               onFocus={handleFocus}
@@ -129,7 +126,9 @@ export const Contact = () => {
               value={tel.length === 5 ? "+998 (XX)-XXX-XX-XX" : tel}
               className={`w-full text-base sm:text-lg lg:text-xl px-8 py-2 sm:py-3 lg:py-4 rounded-2xl border-2 ${
                 telError ? "border-red-500" : "border-green-500"
-              } ${tel.length === 5 ? "text-gray-400 select-none" : "text-black"}`}
+              } ${
+                tel.length === 5 ? "text-gray-400 select-none" : "text-black"
+              }`}
               onFocus={handleFocus}
               onChange={changeInputTel}
             />
