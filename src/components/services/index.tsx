@@ -1,6 +1,7 @@
 import { ServicesItems } from "@/types";
 import { useTranslations } from "next-intl";
 import { Card } from "./components";
+import Image from "next/image";
 
 export const Services = () => {
   const t = useTranslations("Services");
@@ -32,15 +33,15 @@ export const Services = () => {
     <div className="bg-[url('/servicesImage/image1.jpg')] bg-cover">
       <section id="service" className="containerUz section">
         <div className="">
-          <h1 className="title text-white">
-            {t("title")}
-          </h1>
+          <h1 className="title text-white">{t("title")}</h1>
           <div className="max-h-[550px] grid md:grid-cols-2 grid-rows-1 gap-8 ">
             <div className=" hidden md:block rounded-3xl overflow-hidden">
-              <img
-                className="w-full h-full object-cover"
+              <Image
                 src="/servicesImage/barberServices.jpg"
                 alt="barber"
+                width={1000}
+                height={1000}
+                className="w-full h-full object-cover"
               />
             </div>
             <div className="grid grid-cols-2 grid-rows-2 gap-4 ">

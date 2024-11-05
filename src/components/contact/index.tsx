@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { ButtonBron, Modal } from "@/components";
 import { useState } from "react";
+import Image from "next/image";
 
 export const Contact = () => {
   const t = useTranslations("Contact");
@@ -88,10 +89,12 @@ export const Contact = () => {
     <section className="containerUz section">
       <div className="min-h-[250px] grid grid-cols-1 md:grid-cols-2 bg-[url('/contactImage/bg3.jpg')] bg-cover">
         <div className="hidden md:block">
-          <img
-            className="w-full h-full object-cover"
+          <Image
             src="/contactImage/bg.jpg"
             alt="contact"
+            width={1200}
+            height={800}
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">

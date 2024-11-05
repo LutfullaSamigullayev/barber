@@ -1,6 +1,7 @@
 import { ButtonBron } from "@/components/buttonBron";
 import { Icons } from "@/icons/icons";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export const Banner = () => {
   const t = useTranslations("Banner");
@@ -24,9 +25,11 @@ export const Banner = () => {
           <ButtonBron onSubmit={() => {}} />
         </div>
         <div className="w-full h-fit md:max-h-[500px] rounded-3xl overflow-hidden">
-          <img
+          <Image
             src="/bannerImage/image.jpg"
             alt="header"
+            width={1200}
+            height={600}
             className="w-full h-fit object-cover"
           />
         </div>
