@@ -1,7 +1,6 @@
 import { Icons } from "@/icons/icons";
 import { MenuItems, MenuProps } from "@/types";
 import { useTranslations } from "next-intl";
-import { LangSelect } from "./langSelect";
 import React from "react";
 
 export const Menu = ({ className, onCancel }: MenuProps) => {
