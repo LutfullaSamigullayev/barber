@@ -32,7 +32,7 @@ export const Services = () => {
     <div className="bg-[url('/servicesImage/image1.jpg')] bg-cover">
       <section id="service" className="containerUz section">
         <div className="">
-          <h1 className="title">
+          <h1 className="title text-white">
             {t("title")}
           </h1>
           <div className="max-h-[550px] grid md:grid-cols-2 grid-rows-1 gap-8 ">
