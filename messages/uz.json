@@ -33,7 +33,7 @@
     "title": "Navbatni bron qilish",
     "name": "Ismingizni kiriting:",
     "nameError": "Ismingizni kiritmadingiz!",
-    "tel": "Telefon raqamingizni kiriting",
+    "tel": "Telefon raqamingizni kiriting:",
     "telError": "Telefon raqamingizni to'g'ri kiriting!"
   }
 }
