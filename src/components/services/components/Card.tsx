@@ -8,9 +8,8 @@ export const Card = ({ title, image }: ServicesItems) => {
         <Image
           src={image}
           alt={title}
-          layout="responsive"
-          width={500}
-          height={300}
+          width={300}
+          height={210}
           className="w-full h-full object-cover"
         />
       </div>

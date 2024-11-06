@@ -87,13 +87,13 @@ export const Contact = () => {
 
   return (
     <section className="containerUz section">
-      <div className="min-h-[250px] grid grid-cols-1 md:grid-cols-2 bg-[url('/contactImage/bg3.jpg')] bg-cover">
+      <div className="min-h-[250px] grid grid-cols-1 md:grid-cols-2 bg-gradient-to-tl from-slate-400 from-10% via-gray-300 via-30% to-zinc-200 to-90%">
         <div className="hidden md:block">
           <Image
             src="/contactImage/bg.jpg"
             alt="contact"
-            width={1200}
-            height={800}
+            width={600}
+            height={400}
             className="w-full h-full object-cover"
           />
         </div>

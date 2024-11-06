@@ -28,9 +28,9 @@ export const Banner = () => {
           <Image
             src="/bannerImage/image.jpg"
             alt="header"
-            width={1200}
-            height={600}
-            className="w-full h-fit object-cover"
+            width={700}
+            height={500}
+            className="w-full h-fit object-cover overflow-hidden"
           />
         </div>
       </div>

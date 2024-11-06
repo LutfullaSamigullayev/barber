@@ -30,7 +30,7 @@ export const Services = () => {
   ];
 
   return (
-    <div className="bg-[url('/servicesImage/image1.jpg')] bg-cover">
+    <div className=" bg-gradient-to-br from-slate-400 from-10% via-slate-500 via-30% to-neutral-500 to-90%">
       <section id="service" className="containerUz section">
         <div className="">
           <h1 className="title text-white">{t("title")}</h1>
@@ -39,8 +39,8 @@ export const Services = () => {
               <Image
                 src="/servicesImage/barberServices.jpg"
                 alt="barber"
-                width={1000}
-                height={1000}
+                width={600}
+                height={550}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -53,5 +53,7 @@ export const Services = () => {
         </div>
       </section>
     </div>
+
+    // bg-[url('/servicesImage/image1.jpg')] bg-cover
   );
 };
