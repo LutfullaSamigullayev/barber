@@ -1,33 +1,10 @@
-import { PriceItems } from "@/types";
-import { useTranslations } from "next-intl";
 import { PriceCard } from "./components";
-import { ButtonBron } from "../buttonBron";
+import { LinkBorn } from "@/components";
+import { priceItems } from "@/data";
+import { useTranslations } from "next-intl";
 
 export const Price = () => {
   const t = useTranslations("Price");
-
-  const priceItems: PriceItems[] = [
-    {
-      id: 1,
-      title: t("Regular Haircut"),
-      price: 40,
-    },
-    {
-      id: 2,
-      title: t("shaving"),
-      price: 20,
-    },
-    {
-      id: 3,
-      title: t("hairCut and shaving"),
-      price: 50,
-    },
-    {
-      id: 4,
-      title: t("Haircut and Facial"),
-      price: 100,
-    },
-  ];
 
   return (
     <section id="price" className="containerUz section">
@@ -38,7 +15,7 @@ export const Price = () => {
             <PriceCard key={item.id} {...item} />
           ))}
         </div>
-        <ButtonBron />
+        <LinkBorn />
       </div>
     </section>
   );

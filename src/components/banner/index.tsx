@@ -1,4 +1,4 @@
-import { ButtonBron } from "@/components/buttonBron";
+import { LinkBorn } from "@/components";
 import { Icons } from "@/icons/icons";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -22,7 +22,7 @@ export const Banner = () => {
             <Icons.phone />
             <p>+99890-765-43-21</p>
           </div>
-          <ButtonBron />
+          <LinkBorn />
         </div>
         <div className="w-full h-fit md:max-h-[500px] rounded-3xl overflow-hidden">
           <Image

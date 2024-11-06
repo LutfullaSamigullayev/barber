@@ -1,33 +1,10 @@
-import { ServicesItems } from "@/types";
 import { useTranslations } from "next-intl";
 import { Card } from "./components";
 import Image from "next/image";
+import { servicesItems } from "@/data";
 
 export const Services = () => {
   const t = useTranslations("Services");
-
-  const servicesItems: ServicesItems[] = [
-    {
-      id: 1,
-      image: "/servicesImage/hairCut.jpg",
-      title: t("hairCut"),
-    },
-    {
-      id: 2,
-      image: "/servicesImage/shaving.jpg",
-      title: t("shaving"),
-    },
-    {
-      id: 3,
-      image: "/servicesImage/breadTrim.jpg",
-      title: t("breadTrim"),
-    },
-    {
-      id: 4,
-      image: "/servicesImage/kidsHairCut.jpg",
-      title: t("kidsHairCut"),
-    },
-  ];
 
   return (
     <div className=" bg-gradient-to-br from-slate-400 from-10% via-slate-500 via-30% to-neutral-500 to-90%">

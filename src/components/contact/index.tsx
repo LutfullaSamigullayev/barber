@@ -3,21 +3,64 @@
 import { useTranslations } from "next-intl";
 import { ButtonBron, Modal } from "@/components";
 import { useState } from "react";
-import Image from "next/image";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { priceItems, times } from "@/data";
 
 export const Contact = () => {
   const t = useTranslations("Contact");
+  const tPrice = useTranslations("Price");
+
   const [nameError, setNameError] = useState(false);
   const [telError, setTelError] = useState(false);
   const [tel, setTel] = useState("+998 ");
   const [name, setName] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
+  // ---------------------------- Services select ------------------------------------
+  const handleServiceSelect = (service: string) => setSelectedService(service);
+
+  // ---------------------------- Data select ------------------------------------
+  const handleDateChange = (date: Date | null) => {
+    setSelectedDate(date);
+    setSelectedTime(null); // Sana o'zgarganda vaqtni reset qilish
+  };
+
+  // ---------------------------- Time select ------------------------------------
+  const handleTimeSelect = (time: string) => setSelectedTime(time);
+  const isTimeDisabled = (time: string) => {
+    if (!selectedDate) return false;
+
+    const now = new Date();
+    const [hour, minute] = time.split(":").map(Number);
+    const timeDate = new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth(),
+      selectedDate.getDate(),
+      hour,
+      minute
+    );
+
+    // Agar tanlangan sana bugungi sana bo'lsa va vaqt hozirgi vaqtdan oldin bo'lsa, disable qilamiz
+    return (
+      selectedDate.toDateString() === now.toDateString() &&
+      timeDate.getTime() <= now.getTime()
+    );
+  };
+
+  // ---------------------------- FORM START ------------------------------------
+
+  // ---------------------------- Input name ------------------------------------
   const changeInputName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     setNameError(e.target.value === "");
   };
+  // ---------------------------- Input end ------------------------------------
 
+  // ---------------------------- Input tel ------------------------------------
   const formatPhoneNumber = (input: string) => {
     const digits = input.replace(/\D/g, "").slice(3); // "+998" prefiksini tashlab ketish
     let formatted = "";
@@ -44,14 +87,24 @@ export const Contact = () => {
       setTel("+998 ");
     }
   };
+  // ---------------------------- Input end ------------------------------------
 
+  // ---------------------------- Telegram start ------------------------------------
   const botToken = "7705601884:AAEYV5geTNUEFhWAJM8pI8VJygf5nREmKZw";
   const chatId = "1325078946";
   // https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
   // chatId olish  U "message" obyektida ko'rinadi.
+  // ---------------------------- Telegram end ------------------------------------
 
+  // ---------------------------- Post start ------------------------------------
   const postMessege = async () => {
-    const post = `<b>Ism:</b> ${name}\n<b>Telefon raqami:</b> ${tel}`;
+    const post = `<b>Ism:</b> ${name}\n<b>Telefon raqami:</b> ${tel}\n<b>Xizmat:</b> ${
+      selectedService ? selectedService : "belgilanmagan"
+    } \n<b>Kuni:</b> ${
+      selectedDate
+        ? selectedDate.toLocaleDateString("en-GB").replace(/\//g, ".")
+        : "belgilanmagan"
+    } \n<b>Soati:</b> ${selectedTime ? selectedTime : "belgilanmagan"}`;
 
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
@@ -71,34 +124,98 @@ export const Contact = () => {
         console.error(error);
       });
   };
+  // ---------------------------- Psot end ------------------------------------
 
+  // ---------------------------- Submit start ------------------------------------
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!nameError && !telError && name.length !== 0 && tel.length === 19) {
       postMessege();
       setName("");
       setTel("+998 ");
+      setSelectedService(null);
+      setSelectedDate(null);
+      setSelectedTime(null);
       setIsModalOpen(true);
     } else {
       setNameError(name === "");
       setTelError(tel.length !== 19);
     }
   };
+  // ---------------------------- Submit end ------------------------------------
+
+  // ---------------------------- FORM END ------------------------------------
 
   return (
-    <section className="containerUz section">
-      <div className="min-h-[250px] grid grid-cols-1 md:grid-cols-2 bg-gradient-to-tl from-slate-400 from-10% via-gray-300 via-30% to-zinc-200 to-90%">
-        <div className="hidden md:block">
-          <Image
-            src="/contactImage/bg.jpg"
-            alt="contact"
-            width={600}
-            height={400}
-            className="w-full h-full object-cover"
-          />
+    <section id="contact" className="containerUz section">
+      <h1 className="title">{t("title")}</h1>
+
+      <div className="min-h-[250px] grid gap-y-5 gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="w-full">
+          <h3 className="contact__title">Xizmat turini tanlang</h3>
+          {priceItems.map((service) => (
+            <div
+              key={service.id}
+              className={`border-b rounded-xl overflow-hidden border-gray-300 p-3 flex gap-x-4 items-center justify-between cursor-pointer transition-all hover:bg-slate-200 ${
+                selectedService === tPrice(service.title) ? "bg-slate-200" : ""
+              }`}
+              onClick={() => handleServiceSelect(tPrice(service.title))}
+            >
+              <div className="w-full flex justify-between">
+                <span>{tPrice(service.title)}</span>
+                <span>
+                  {service.price} {tPrice("money")}
+                </span>
+              </div>
+              <div
+                className={`w-[21px] h-[20px] rounded-full border-2 border-gray-300 ${
+                  selectedService === tPrice(service.title)
+                    ? "bg-black border-black"
+                    : ""
+                }`}
+              />
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
-          <h1 className="title">{t("title")}</h1>
+
+        <div className="w-full">
+          <h3 className="contact__title">Sana va vaqtni tanlang</h3>
+          <div className="w-full flex justify-center pt-2">
+            <DatePicker
+              selected={selectedDate}
+              onChange={handleDateChange}
+              dateFormat="dd/MM/yyyy"
+              className="p-2 border border-gray-300  rounded-lg w-fit"
+              minDate={new Date()} // faqat bugungi sana yoki kelajakdagi sanalar tanlanadi
+            />
+          </div>
+
+          <div className="grid grid-cols-3 gap-3 pt-5">
+            {times.map((time) => (
+              <div
+                key={time}
+                onClick={() => !isTimeDisabled(time) && handleTimeSelect(time)}
+                className={`select-none p-2 text-center rounded-lg ${
+                  selectedTime === time
+                    ? "bg-gray-700 text-white"
+                    : "bg-gray-200 hover:bg-gray-300"
+                } ${
+                  isTimeDisabled(time)
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none"
+                    : ""
+                }`} // disable holatida ko'rinish
+              >
+                {time}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="col-span-2 lg:col-span-1 flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
+          <h3 className="contact__title">
+            Ism va telefon raqamingizni kiriting
+          </h3>
+
           <form
             className="flex flex-col justify-center items-center gap-y-1 px-1 sm:px-3 md:px-6 lg:px-10"
             onSubmit={handleSubmit}

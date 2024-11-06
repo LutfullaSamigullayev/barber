@@ -46,7 +46,9 @@ html,
 /* ---------------------Contact start--------------- */
 
 /* ---------------------Contact end--------------- */
-
+.contact__title {
+  @apply text-lg font-semibold text-center p-2 md:text-xl lg:text-2xl
+}
 
 /* ---------------------Modal start--------------- */
 

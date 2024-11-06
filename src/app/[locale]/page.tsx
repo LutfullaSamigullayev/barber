@@ -1,4 +1,11 @@
-import { Banner, Contact, Gallery, Header, Price, Services } from "@/components";
+import {
+  Banner,
+  Contact,
+  Gallery,
+  Header,
+  Price,
+  Services,
+} from "@/components";
 
 export default function Home() {
   return (

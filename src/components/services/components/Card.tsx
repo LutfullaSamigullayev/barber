@@ -1,7 +1,10 @@
 import { ServicesItems } from "@/types";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export const Card = ({ title, image }: ServicesItems) => {
+  const t = useTranslations("Services");
+
   return (
     <div className="w-full h-full rounded-lg overflow-hidden">
       <div className="h-4/5 overflow-hidden">
@@ -14,7 +17,7 @@ export const Card = ({ title, image }: ServicesItems) => {
         />
       </div>
       <div className="flex items-center justify-center text-center leading-4 backdrop: break-words h-1/5 text-lg sm:text-xl lg:text-2xl py-2 rounded-b-lg bg-white">
-        {title}
+        {t(title)}
       </div>
     </div>
   );

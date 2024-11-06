@@ -24,15 +24,20 @@
   "Price": {
     "title": "Narxlar",
     "money": "ming so'm",
-    "Regular Haircut": "Oddiy soch turmagi",
+    "regular haircut": "Oddiy soch turmagi",
+    "haircut": "Soch olish",
     "shaving": "Soqol olish",
     "hairCut and shaving": "Soch va soqol olish",
-    "Haircut and Facial": "Soch olish va yuzni parvarish qilish"
+    "facial": "Yuzni parvarish qilish",
+    "wedding": "To'y uchun"
   },
   "Contact": {
     "title": "Navbatni bron qilish",
     "name": "Ismingizni kiriting:",
     "nameError": "Ismingizni kiritmadingiz!",
-    "telError": "Telefon raqamingizni to'g'ri kiriting!"
+    "telError": "Telefon raqamingizni to'g'ri kiriting!",
+    "services": "Xizmat turini tanlang",
+    "date": "Sana va vaqtni tanlang",
+    "form": "Ism va telefon raqamingizni kiriting"
   }
 }
