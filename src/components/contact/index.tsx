@@ -152,7 +152,7 @@ export const Contact = () => {
 
       <div className="min-h-[250px] grid gap-y-5 gap-x-5 grid-cols-1 lg:grid-cols-3">
         <div className="w-full">
-          <h3 className="contact__title">Xizmat turini tanlang</h3>
+          <h3 className="contact__title">{t("services")}</h3>
           {priceItems.map((service) => (
             <div
               key={service.id}
@@ -179,7 +179,7 @@ export const Contact = () => {
         </div>
 
         <div className="w-full">
-          <h3 className="contact__title">Sana va vaqtni tanlang</h3>
+          <h3 className="contact__title">{t("date")}</h3>
           <div className="w-full flex justify-center pt-2 text-black">
             <DatePicker
               selected={selectedDate}
@@ -212,9 +212,7 @@ export const Contact = () => {
         </div>
 
         <div className="w-full flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
-          <h3 className="contact__title">
-            Ism va telefon raqamingizni kiriting
-          </h3>
+          <h3 className="contact__title">{t("form")}</h3>
 
           <form
             className="flex flex-col justify-center items-center gap-y-1 px-1 sm:px-3 md:px-6 lg:px-10"
