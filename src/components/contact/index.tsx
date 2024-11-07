@@ -53,6 +53,7 @@ export const Contact = () => {
 
   useEffect(() => {
     handleDateChange;
+    isTimeDisabled;
   }, []);
 
   // ---------------------------- FORM START ------------------------------------
