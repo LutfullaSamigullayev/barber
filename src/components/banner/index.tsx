@@ -24,13 +24,15 @@ export const Banner = () => {
           </div>
           <LinkBorn />
         </div>
-        <div className="w-full h-fit md:max-h-[500px] rounded-3xl overflow-hidden">
+        <div className="w-full h-full md:max-h-[500px] rounded-3xl overflow-hidden">
           <Image
-            src="/bannerImage/image.jpg"
+            src="/bannerImage/bg.jpg"
             alt="header"
             width={700}
             height={500}
-            className="w-full h-fit object-cover overflow-hidden"
+            className="w-full h-full  overflow-hidden"
+            objectFit="cover"
+            objectPosition="center"
           />
         </div>
       </div>

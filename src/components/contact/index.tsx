@@ -150,13 +150,13 @@ export const Contact = () => {
     <section id="contact" className="containerUz section">
       <h1 className="title">{t("title")}</h1>
 
-      <div className="min-h-[250px] grid gap-y-5 gap-x-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="min-h-[250px] grid gap-y-5 gap-x-5 grid-cols-1 lg:grid-cols-3">
         <div className="w-full">
           <h3 className="contact__title">Xizmat turini tanlang</h3>
           {priceItems.map((service) => (
             <div
               key={service.id}
-              className={`border-b rounded-xl overflow-hidden border-gray-300 p-3 flex gap-x-4 items-center justify-between cursor-pointer transition-all hover:bg-slate-200 ${
+              className={`border-b rounded-xl overflow-hidden border-gray-300 p-3 flex gap-x-4 items-center justify-between cursor-pointer transition-all hover:border-slate-600 ${
                 selectedService === tPrice(service.title) ? "bg-slate-200" : ""
               }`}
               onClick={() => handleServiceSelect(tPrice(service.title))}
@@ -180,7 +180,7 @@ export const Contact = () => {
 
         <div className="w-full">
           <h3 className="contact__title">Sana va vaqtni tanlang</h3>
-          <div className="w-full flex justify-center pt-2">
+          <div className="w-full flex justify-center pt-2 text-black">
             <DatePicker
               selected={selectedDate}
               onChange={handleDateChange}
@@ -190,7 +190,7 @@ export const Contact = () => {
             />
           </div>
 
-          <div className="grid grid-cols-3 gap-3 pt-5">
+          <div className="grid grid-cols-3 gap-3 pt-5 text-black">
             {times.map((time) => (
               <div
                 key={time}
@@ -198,7 +198,7 @@ export const Contact = () => {
                 className={`select-none p-2 text-center rounded-lg ${
                   selectedTime === time
                     ? "bg-gray-700 text-white"
-                    : "bg-gray-200 hover:bg-gray-300"
+                    : "bg-gray-200 hover:bg-gray-400"
                 } ${
                   isTimeDisabled(time)
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none"
@@ -211,7 +211,7 @@ export const Contact = () => {
           </div>
         </div>
 
-        <div className="col-span-2 lg:col-span-1 flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
+        <div className="w-full flex flex-col justify-center gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
           <h3 className="contact__title">
             Ism va telefon raqamingizni kiriting
           </h3>

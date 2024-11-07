@@ -3,6 +3,7 @@ import { IconProps } from "@/types";
 export const Icons = {
   burger: (props: IconProps) => (
     <svg
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 50 50"
       width="50"
@@ -44,6 +45,7 @@ export const Icons = {
   ),
   location: (props: IconProps) => (
     <svg
+      fill="currentColor"
       height="26px"
       width="26px"
       version="1.1"
@@ -54,13 +56,13 @@ export const Icons = {
     >
       <g>
         <path
-          style={{ fill: "#000002" }}
+          style={{ fill: "currentColor" }}
           d="M127.928,38.8c-30.75,0-55.768,25.017-55.768,55.767s25.018,55.767,55.768,55.767
         s55.768-25.017,55.768-55.767S158.678,38.8,127.928,38.8z M127.928,135.333c-22.479,0-40.768-18.288-40.768-40.767
         S105.449,53.8,127.928,53.8s40.768,18.288,40.768,40.767S150.408,135.333,127.928,135.333z"
         />
         <path
-          style={{ fill: "#000002" }}
+          style={{ fill: "currentColor" }}
           d="M127.928,0C75.784,0,33.362,42.422,33.362,94.566c0,30.072,25.22,74.875,40.253,98.904
         c9.891,15.809,20.52,30.855,29.928,42.365c15.101,18.474,20.506,20.02,24.386,20.02c3.938,0,9.041-1.547,24.095-20.031
         c9.429-11.579,20.063-26.616,29.944-42.342c15.136-24.088,40.527-68.971,40.527-98.917C222.495,42.422,180.073,0,127.928,0z
@@ -73,7 +75,7 @@ export const Icons = {
   ),
   phone: (props: IconProps) => (
     <svg
-      fill="#000000"
+      fill="currentColor"
       height="26px"
       width="26px"
       version="1.1"
