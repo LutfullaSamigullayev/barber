@@ -105,13 +105,13 @@ export const Contact = () => {
 
   // ---------------------------- Post start ------------------------------------
   const postMessege = async () => {
-    const post = `<b>Ism:</b> ${name}\n<b>Telefon raqami:</b> ${tel}\n<b>Xizmat:</b> ${
+    const post = `<b>Ism:</b> ${name}\n<b>Tel:</b> ${tel}\n<b>Xizmat:</b> ${
       selectedService ? selectedService : "belgilanmagan"
-    } \n<b>Kuni:</b> ${
+    } \n<b>Kun:</b> ${
       selectedDate
         ? selectedDate.toLocaleDateString("en-GB").replace(/\//g, ".")
         : "belgilanmagan"
-    } \n<b>Soati:</b> ${selectedTime ? selectedTime : "belgilanmagan"}`;
+    } \n<b>Soat:</b> ${selectedTime ? selectedTime : "belgilanmagan"}`;
 
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",

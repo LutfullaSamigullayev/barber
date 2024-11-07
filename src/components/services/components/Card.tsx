@@ -16,7 +16,7 @@ export const Card = ({ title, image }: ServicesItems) => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex items-center justify-center text-center leading-4 backdrop: break-words h-1/5 text-lg sm:text-xl lg:text-2xl py-2 rounded-b-lg bg-white">
+      <div className="flex items-center justify-center text-center leading-4 backdrop: break-words h-1/5 text-lg sm:text-xl lg:text-2xl py-2 rounded-b-lg text-background bg-foreground">
         {t(title)}
       </div>
     </div>
