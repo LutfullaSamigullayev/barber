@@ -29,6 +29,13 @@ export const Contact = () => {
     setSelectedTime(null); // Sana o'zgarganda vaqtni reset qilish
   };
 
+  //birinchi kirganda data qo'shadi
+  useEffect(() => {
+    if (selectedDate) {
+      handleDateChange(selectedDate);
+    }
+  }, [selectedDate]);
+
   // ---------------------------- Time select ------------------------------------
   const handleTimeSelect = (time: string) => setSelectedTime(time);
   const isTimeDisabled = (time: string) => {
@@ -50,11 +57,6 @@ export const Contact = () => {
       timeDate.getTime() <= now.getTime()
     );
   };
-
-  useEffect(() => {
-    handleDateChange;
-    isTimeDisabled;
-  }, []);
 
   // ---------------------------- FORM START ------------------------------------
 
