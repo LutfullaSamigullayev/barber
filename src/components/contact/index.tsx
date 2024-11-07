@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { ButtonBron, Modal } from "@/components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { priceItems, times } from "@/data";
@@ -50,6 +50,10 @@ export const Contact = () => {
       timeDate.getTime() <= now.getTime()
     );
   };
+
+  useEffect(() => {
+    handleDateChange;
+  }, []);
 
   // ---------------------------- FORM START ------------------------------------
 
