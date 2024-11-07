@@ -156,8 +156,10 @@ export const Contact = () => {
           {priceItems.map((service) => (
             <div
               key={service.id}
-              className={`border-b rounded-xl overflow-hidden border-gray-300 p-3 flex gap-x-4 items-center justify-between cursor-pointer transition-all hover:border-slate-600 ${
-                selectedService === tPrice(service.title) ? "bg-slate-200" : ""
+              className={`border-b rounded-xl overflow-hidden border-gray-300 p-3 flex gap-x-4 items-center justify-between cursor-pointer transition-all hover:border-slate-600 hover:px-7 ${
+                selectedService === tPrice(service.title)
+                  ? "border-slate-600 px-7"
+                  : ""
               }`}
               onClick={() => handleServiceSelect(tPrice(service.title))}
             >
@@ -170,7 +172,7 @@ export const Contact = () => {
               <div
                 className={`w-[21px] h-[20px] rounded-full border-2 border-gray-300 ${
                   selectedService === tPrice(service.title)
-                    ? "bg-black border-black"
+                    ? "bg-foreground border-background"
                     : ""
                 }`}
               />
